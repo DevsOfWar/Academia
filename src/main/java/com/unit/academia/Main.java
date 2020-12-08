@@ -1,26 +1,30 @@
 package com.unit.academia;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
+
+import com.unit.academia.entidades.Plano;
+import com.unit.academia.repositorios.PlanoRepositorio;
 
 public class Main {
 
 	public static void main(String[] args) throws SQLException {
-		Connection conn = DatabaseConnection.conn();
-		Statement st = conn.createStatement();
+		
+		/*
 		ResultSet rs = null;
 		String query = "";
-		//INICIALIAÇÃO
-		
 		query = "select * from uVW_DADOS_CONTRATOS_ALUNOS where [Nº do Contrato] = 1";
-		rs = st.executeQuery(query);
+		rs = DatabaseConnection.stmt.executeQuery(query);
 		while (rs.next()) {
-			System.out.println(rs.getString(3));
-		}
-		conn.close();
+			System.out.println(rs.getString(1));
+		}*/
+	
+		Plano plano = PlanoRepositorio.findById(1);
+		System.out.printf("Cod: %s | Tipo: %s | Valor %.2f | QtdAtv: %s\n", plano.getCodPlano(), plano.getTipo(), plano.getValor(), plano.getQtdAtividadesDisponiveis());
+		
 
+		
+		DatabaseConnection.conn.close();
 		
 	}
 
