@@ -21,8 +21,8 @@ public abstract class PlanoRepositorio {
 	}
 
 	public static void update(Plano plano) {
-		String query = "UPDATE plano\n" + "SET tipo_plano = '" + plano.getTipo() + "', valor_plano = "
-				+ plano.getValor() + ", qtd_atividades_disponiveis = " + plano.getQtdAtividadesDisponiveis() + "\n"
+		String query = "UPDATE plano\n" 
+				+ "SET tipo_plano = '" + plano.getTipo() + "', valor_plano = "+ plano.getValor() + ", qtd_atividades_disponiveis = " + plano.getQtdAtividadesDisponiveis() + "\n"
 				+ "WHERE cd_plano = " + plano.getCodPlano();
 		try {
 			DatabaseConnection.stmt.executeUpdate(query);
@@ -66,7 +66,8 @@ public abstract class PlanoRepositorio {
 	}
 
 	public static void delete(Plano plano) {
-		String query = "DELETE FROM plano\n" + "WHERE cd_plano = " + plano.getCodPlano();
+		String query = "DELETE FROM plano\n" 
+					+ "WHERE cd_plano = " + plano.getCodPlano();
 
 		try {
 			DatabaseConnection.stmt.executeUpdate(query);
