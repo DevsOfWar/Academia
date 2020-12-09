@@ -9,10 +9,16 @@ import javax.swing.SwingConstants;
 import com.unit.academia.repositorios.PlanoRepositorio;
 import javax.swing.JMenuItem;
 import javax.swing.JTextPane;
+import javax.swing.JList;
+import javax.swing.JPopupMenu;
 
 public class Gui {
 
 	private JFrame frame;
+	/**
+	 * @wbp.nonvisual location=62,379
+	 */
+	private final JPopupMenu popupMenu = new JPopupMenu();
 
 	/**
 	 * Launch the application.
@@ -96,30 +102,36 @@ public class Gui {
 		JMenu mnNewMenu_2 = new JMenu("Aluno");
 		menuBar.add(mnNewMenu_2);
 		
-		JMenuItem mntmNewMenuItem_8 = new JMenuItem("Adicionar");
-		mnNewMenu_2.add(mntmNewMenuItem_8);
+		JMenuItem alunoAdd = new JMenuItem(new AlunoAdicionarAction());
+		alunoAdd.setText("Adicionar");
+		mnNewMenu_2.add(alunoAdd);
 		
-		JMenuItem mntmNewMenuItem_9 = new JMenuItem("Editar");
-		mnNewMenu_2.add(mntmNewMenuItem_9);
+		JMenuItem alunoEd = new JMenuItem(new AlunoEditarAction());
+		alunoEd.setText("Eitar");
+		mnNewMenu_2.add(alunoEd);
 		
-		JMenuItem mntmNewMenuItem_10 = new JMenuItem("Excluir");
-		mnNewMenu_2.add(mntmNewMenuItem_10);
+		JMenuItem alunoEx = new JMenuItem(new AlunoExcluirAction());
+		alunoEx.setText("Excluir");
+		mnNewMenu_2.add(alunoEx);
 		
-		JMenuItem mntmNewMenuItem_11 = new JMenuItem("Consultar");
-		mnNewMenu_2.add(mntmNewMenuItem_11);
+		JMenuItem alunoCons = new JMenuItem(new AlunoConsultarAction());
+		alunoCons.setText("Consultar");
+		mnNewMenu_2.add(alunoCons);
 		
-		JMenuItem mntmNewMenuItem_12 = new JMenuItem("Registrar Contrato");
-		mnNewMenu_2.add(mntmNewMenuItem_12);
+		JMenuItem alunoContr = new JMenuItem(new AlunoContratoAction());
+		alunoContr.setText("Registrar Contrato");
+		mnNewMenu_2.add(alunoContr);
 		
 		JMenuItem mntmNewMenuItem_13 = new JMenuItem("Efetuar Pagamento");
-		mnNewMenu_2.add(mntmNewMenuItem_13);
+		mnNewMenu_2.add(mntmNewMenuItem_13); //não implementado
 		
 		// Menu Turma
 		JMenu mnNewMenu_3 = new JMenu("Turma");
 		menuBar.add(mnNewMenu_3);
 		
-		JMenuItem mntmNewMenuItem_14 = new JMenuItem("Adicionar");
-		mnNewMenu_3.add(mntmNewMenuItem_14);
+		JMenuItem turmaAdd = new JMenuItem(new TurmaAdicionarActio());
+		turmaAdd.setText("Adicionar");
+		mnNewMenu_3.add(turmaAdd);
 		
 		JMenuItem mntmNewMenuItem_15 = new JMenuItem("Editar");
 		mnNewMenu_3.add(mntmNewMenuItem_15);

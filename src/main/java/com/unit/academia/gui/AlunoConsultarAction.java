@@ -10,12 +10,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AtividadeConsultarAction extends AbstractAction{
-	
+public class AlunoConsultarAction extends AbstractAction{
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JFrame f = new JFrame();
-		f.setTitle("Consultar atividade");
+		f.setTitle("Consultar aluno");
 		f.setSize(280, 200);
 		f.setLocation(500, 300);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,12 +30,12 @@ public class AtividadeConsultarAction extends AbstractAction{
 		p.add(t1);
 		
 		JButton consultar = new JButton("Consultar");
-		AtividadeConsultarBotao acaoBotao = new AtividadeConsultarBotao(t1);
+		AlunoConsultarBotao acaoBotao = new AlunoConsultarBotao(t1);
 		consultar.addActionListener(acaoBotao);
 		p.add(consultar);
 		
 		f.add(p);
-		f.setVisible(true);		
+		f.setVisible(true);	
 	}
 
 }
