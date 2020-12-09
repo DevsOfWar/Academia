@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TurmaEditarAction extends AbstractAction{
+public class TurmaEditarAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -27,7 +27,7 @@ public class TurmaEditarAction extends AbstractAction{
 		p.add(l7);
 		JTextField t7 = new JTextField(10);
 		p.add(t7);
-		
+
 		JLabel l1 = new JLabel("Editar ID instrutpr");
 		p.add(l1);
 		JTextField t1 = new JTextField(10);
@@ -52,20 +52,19 @@ public class TurmaEditarAction extends AbstractAction{
 		p.add(l5);
 		JTextField t5 = new JTextField(10);
 		p.add(t5);
-		
+
 		JLabel l6 = new JLabel("Editar Qtd. alunos");
 		p.add(l6);
 		JTextField t6 = new JTextField(10);
 		p.add(t6);
 
 		JButton editar = new JButton("Editar");
-		TurmaEditarBotao acaoBotao = new TurmaEditarBotao(t1, t2, t3, t4, t5, t6);
+		TurmaEditarBotao acaoBotao = new TurmaEditarBotao(t7, t1, t2, t3, t4, t5, t6);
 		editar.addActionListener(acaoBotao);
 		p.add(editar);
 
 		f.add(p);
 		f.setVisible(true);
 	}
-	
 
 }
