@@ -1,5 +1,7 @@
 package com.unit.academia.entidades;
 
+import com.unit.academia.repositorios.PlanoRepositorio;
+
 public class Plano {
 	private int codPlano;
 	private String tipo;
@@ -45,6 +47,14 @@ public class Plano {
 	}
 	public void setQtdAtividadesDisponiveis(int qtdAtividadesDisponiveis) {
 		this.qtdAtividadesDisponiveis = qtdAtividadesDisponiveis;
+	}
+	
+	public void criar() {
+		PlanoRepositorio.create(this);
+	}
+	
+	public void alterar() {
+		PlanoRepositorio.update(this);
 	}
 	
 	

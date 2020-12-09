@@ -103,11 +103,54 @@ public abstract class TurmaRepositorio {
 	
 	public static List<Turma> findAllByAluno(int id) {
 		List<Turma> listaDeTurmas = new ArrayList<Turma>();
-		String query = "SELECT t.cd_turma, t.data_inicio, t.data_fim, t.horario_aula, t.qtd_aluno, t.cd_instrutor, t.cd_atividade, t.cd_matricula_monitor FROM turma AS t INNER JOIN aluno_turma AS [AT] ON t.cd";
+		String query = "SELECT t.cd_turma, t.data_inicio, t.data_fim, t.horario_aula, t.qtd_aluno, t.cd_instrutor, t.cd_atividade, t.cd_matricula_monitor FROM turma AS T INNER JOIN aluno_turma AS [AT] ON T.cd_turma = [AT].cd_turma WHERE [AT].cd_matricula = " + id;
 		
-		
+		try {
+			List<Integer> codInstrutores = new ArrayList<Integer>();
+			List<Integer> codAtividades = new ArrayList<Integer>();
+			List<Integer> codMatriculaMonitor = new ArrayList<Integer>();
+			ResultSet rs = DatabaseConnection.stmt.executeQuery(query);
+			while (rs.next()) {
+				codInstrutores.add(rs.getInt(6));
+				codAtividades.add(rs.getInt(7));
+				codMatriculaMonitor.add(rs.getInt(8));
+				listaDeTurmas.add(new Turma(rs.getInt(1), rs.getDate(2), rs.getDate(3), rs.getTime(4), rs.getInt(5)));
+			}
+			for (int i = 0; i < listaDeTurmas.size(); i++) {
+				listaDeTurmas.get(i).setInstrutor(codInstrutores.get(i) == 0 ? null : InstrutorRepositorio.findById(codInstrutores.get(i)));
+				listaDeTurmas.get(i).setAtividade(AtividadeRepositorio.findById(codAtividades.get(i)));
+				listaDeTurmas.get(i).setAlunoMonitor(codMatriculaMonitor.get(i) == 0 ? null : AlunoRepositorio.findById(codMatriculaMonitor.get(i)));
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return listaDeTurmas;
+	}
+	
+	public static void registrarAlunoTurma(int idAluno, int idTurma) {
+		String query = "INSERT INTO aluno_turma (cd_matricula, cd_turma)\n"
+				+ "VALUES (" + idAluno + ", " + idTurma + ")";
+		
+		try {
+			DatabaseConnection.stmt.executeUpdate(query);
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	public static void removerAlunoTurma(int idAluno, int idTurma) {
+		String query = "DELETE FROM aluno_turma\n"
+				+ "WHERE cd_matricula = " + idAluno + " AND cd_turma = " + idTurma;
+		
+		try {
+			DatabaseConnection.stmt.executeUpdate(query);
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
 	}
 
 }

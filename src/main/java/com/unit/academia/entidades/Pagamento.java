@@ -2,6 +2,8 @@ package com.unit.academia.entidades;
 
 import java.sql.Date;
 
+import com.unit.academia.repositorios.PagamentoRepositorio;
+
 public class Pagamento {
 	private int codPagamento;
 	private String metodo;
@@ -68,5 +70,9 @@ public class Pagamento {
 		this.contrato = contrato;
 	}
 	
+	public void efetuarPagamento() {
+		PagamentoRepositorio.create(this);
+		
+	}
 	
 }

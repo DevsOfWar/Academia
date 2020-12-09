@@ -20,9 +20,14 @@ public class Main {
 			System.out.println(rs.getString(1));
 		}*/
 		
-		Contrato contrato = ContratoRepositorio.findById(1);
-		Boleto boleto = new Boleto("BOLETO", null, new Date(new java.util.Date().getTime()), 10, contrato, "021554522144" );
-		PagamentoRepositorio.create(boleto);
+		
+		Pagamento pgmt = new Pagamento ("ESPECIE", null, new Date(new java.util.Date().getTime()), 55f, ContratoRepositorio.findById(10));
+		Boleto boleto =  new Boleto ("BOLETO", null, new Date(new java.util.Date().getTime()), 55f, ContratoRepositorio.findById(10), "04556484");
+		Cartao cartao =  new Cartao ("CARTAO", null, new Date(new java.util.Date().getTime()), 55f, ContratoRepositorio.findById(10), "", "", "");
+		
+		
+		
+		
 		DatabaseConnection.conn.close();
 	}
 
