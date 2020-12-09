@@ -6,6 +6,7 @@ import java.sql.Time;
 public class Turma {
 	private int codTurma;
 	private Date dtInicio;
+	private Date dtFim;
 	private Time horario;
 	private int qtdMaxAlunos;
 	
@@ -14,10 +15,11 @@ public class Turma {
 	private Aluno alunoMonitor;
 	
 	//INSERIR NOVA TURMA
-	public Turma(Date dtInicio, Time horario, int qtdMaxAlunos, Instrutor instrutor, Atividade atividade,
+	public Turma(Date dtInicio, Date dtFim, Time horario, int qtdMaxAlunos, Instrutor instrutor, Atividade atividade,
 			Aluno alunoMonitor) {
 		super();
 		this.dtInicio = dtInicio;
+		this.dtFim = dtFim;
 		this.horario = horario;
 		this.qtdMaxAlunos = qtdMaxAlunos;
 		this.instrutor = instrutor;
@@ -26,16 +28,13 @@ public class Turma {
 	}
 
 	//LER TURMAS
-	public Turma(int codTurma, Date dtInicio, Time horario, int qtdMaxAlunos, Instrutor instrutor, Atividade atividade,
-			Aluno alunoMonitor) {
+	public Turma(int codTurma, Date dtInicio, Date dtFim, Time horario, int qtdMaxAlunos) {
 		super();
 		this.codTurma = codTurma;
 		this.dtInicio = dtInicio;
+		this.dtFim = dtFim;
 		this.horario = horario;
 		this.qtdMaxAlunos = qtdMaxAlunos;
-		this.instrutor = instrutor;
-		this.atividade = atividade;
-		this.alunoMonitor = alunoMonitor;
 	}
 
 	public int getCodTurma() {
@@ -48,6 +47,14 @@ public class Turma {
 
 	public Date getDtInicio() {
 		return dtInicio;
+	}
+	
+	public Date getDtFim() {
+		return dtFim;
+	}
+
+	public void setDtFim(Date dtFim) {
+		this.dtFim = dtFim;
 	}
 
 	public void setDtInicio(Date dtInicio) {

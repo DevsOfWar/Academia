@@ -27,7 +27,7 @@ public class Aluno {
 	
 	//PARA NOVOS ALUNOS
 	public Aluno(String nome, String telefone, Date dtNascimento, String logradouro, int numeroLogradouro,
-			String bairro, String cidade, String cep, Date dtMatricula, float altura, float peso, String senha) {
+			String bairro, String cidade, String cep, float altura, float peso, String senha) {
 		super();
 		this.nome = nome;
 		this.telefone = telefone;
@@ -37,7 +37,6 @@ public class Aluno {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.cep = cep;
-		this.dtMatricula = dtMatricula;
 		this.altura = altura;
 		this.peso = peso;
 		this.senha = senha;

@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.unit.academia.DatabaseConnection;
 import com.unit.academia.entidades.Atividade;
-import com.unit.academia.entidades.Plano;
 
 public class AtividadeRepositorio {
 	

@@ -1,11 +1,11 @@
 package com.unit.academia;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 
-import com.unit.academia.entidades.Atividade;
-import com.unit.academia.entidades.Plano;
-import com.unit.academia.repositorios.AtividadeRepositorio;
-import com.unit.academia.repositorios.PlanoRepositorio;
+import com.unit.academia.entidades.*;
+import com.unit.academia.repositorios.*;
 
 public class Main {
 
@@ -19,7 +19,8 @@ public class Main {
 		while (rs.next()) {
 			System.out.println(rs.getString(1));
 		}*/
-
+	
+		
 		DatabaseConnection.conn.close();
 	}
 
