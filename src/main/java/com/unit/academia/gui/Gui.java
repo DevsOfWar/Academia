@@ -76,17 +76,21 @@ public class Gui {
 		JMenu mnNewMenu_1 = new JMenu("Atividade");
 		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Adicionar");
-		mnNewMenu_1.add(mntmNewMenuItem_4);
+		JMenuItem atividadeAdd = new JMenuItem(new AtividadeAdicionarAction());
+		atividadeAdd.setText("Adicionar");
+		mnNewMenu_1.add(atividadeAdd);
 		
-		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Editar");
-		mnNewMenu_1.add(mntmNewMenuItem_5);
+		JMenuItem atividadeEd = new JMenuItem(new AtividadeEditarAction());
+		atividadeEd.setText("Editar");
+		mnNewMenu_1.add(atividadeEd);
 		
-		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Excluir");
-		mnNewMenu_1.add(mntmNewMenuItem_6);
+		JMenuItem atividadeEx = new JMenuItem(new AtividadeExcluirAction());
+		atividadeEx.setText("Excluir");
+		mnNewMenu_1.add(atividadeEx);
 		
-		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Consultar");
-		mnNewMenu_1.add(mntmNewMenuItem_7);
+		JMenuItem atividadeCons = new JMenuItem(new AtividadeConsultarAction());
+		atividadeCons.setText("Consultar");
+		mnNewMenu_1.add(atividadeCons);
 		
 		// Menu Aluno
 		JMenu mnNewMenu_2 = new JMenu("Aluno");
