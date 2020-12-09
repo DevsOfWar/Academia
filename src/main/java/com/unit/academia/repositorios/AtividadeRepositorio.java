@@ -8,7 +8,7 @@ import java.util.List;
 import com.unit.academia.DatabaseConnection;
 import com.unit.academia.entidades.Atividade;
 
-public class AtividadeRepositorio {
+public abstract class AtividadeRepositorio {
 	
 	public static void create(Atividade atividade) {
 		String query = "INSERT INTO atividade(nome_atividade, descricao_atividade, custo_hora)\n" 

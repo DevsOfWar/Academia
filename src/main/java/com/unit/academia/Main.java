@@ -19,7 +19,10 @@ public class Main {
 		while (rs.next()) {
 			System.out.println(rs.getString(1));
 		}*/
-	
+		
+		
+		
+		
 		
 		DatabaseConnection.conn.close();
 	}
