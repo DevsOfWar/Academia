@@ -1,5 +1,7 @@
 package com.unit.academia.entidades;
 
+import java.util.List;
+
 import com.unit.academia.repositorios.PlanoRepositorio;
 
 public class Plano {
@@ -8,6 +10,10 @@ public class Plano {
 	private float valor;
 	private int qtdAtividadesDisponiveis;
 	
+	
+	public Plano() {
+		
+	}
 	
 	//PARA INSERIR NOVOS PLANOS
 	public Plano(String tipo, float valor, int qtdAtividadesDisponiveis) {
@@ -49,13 +55,27 @@ public class Plano {
 		this.qtdAtividadesDisponiveis = qtdAtividadesDisponiveis;
 	}
 	
-	public void criar() {
-		PlanoRepositorio.create(this);
+	public void criar(Plano plano) {
+		PlanoRepositorio.create(plano);
 	}
 	
-	public void alterar() {
-		PlanoRepositorio.update(this);
+	public void alterar(Plano plano) {
+		PlanoRepositorio.update(plano);
 	}
 	
+	public Plano listarPorId(int id) {
+
+		return (PlanoRepositorio.findById(id));
+	}
+	
+	public List<Plano> listarTodos(){
+		
+		return PlanoRepositorio.findAll();
+	}
+	
+	public void excluir(Plano plano) {
+		
+		PlanoRepositorio.delete(plano);
+	}
 	
 }

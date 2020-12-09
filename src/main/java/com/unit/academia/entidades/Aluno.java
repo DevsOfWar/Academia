@@ -3,6 +3,9 @@ package com.unit.academia.entidades;
 import java.sql.Date;
 import java.util.List;
 
+import com.unit.academia.repositorios.AlunoRepositorio;
+import com.unit.academia.repositorios.TurmaRepositorio;
+
 public class Aluno {
 	private int codAluno;
 	private String nome;
@@ -175,5 +178,26 @@ public class Aluno {
 		this.turmasQueParticipa = turmasQueParticipa;
 	}
 	
+	public void criar(Aluno aluno) {
+		AlunoRepositorio.create(aluno);
+	}
+	
+	public void alterar(Aluno aluno) {
+		AlunoRepositorio.update(aluno);
+	}
+	
+	public Aluno listarPorId(int id) {
+		
+		return AlunoRepositorio.findById(id);
+	}
+	
+	public List<Aluno> listarTodos(){
+		
+		return AlunoRepositorio.findAll();
+	}
+	
+	public void excluir(Aluno aluno) {
+		AlunoRepositorio.delete(aluno);
+	}
 	
 }

@@ -21,10 +21,13 @@ public class Main {
 		}*/
 		
 		
-		Pagamento pgmt = new Pagamento ("ESPECIE", null, new Date(new java.util.Date().getTime()), 55f, ContratoRepositorio.findById(10));
-		Boleto boleto =  new Boleto ("BOLETO", null, new Date(new java.util.Date().getTime()), 55f, ContratoRepositorio.findById(10), "04556484");
-		Cartao cartao =  new Cartao ("CARTAO", null, new Date(new java.util.Date().getTime()), 55f, ContratoRepositorio.findById(10), "", "", "");
+		Aluno aluno = AlunoRepositorio.findById(3);
+		System.out.println("TESTE");
+		aluno.setTurmasQueParticipa( TurmaRepositorio.findAllByAluno(aluno.getCodAluno()) );
 		
+		for (Turma t : aluno.getTurmasQueParticipa()) {
+			System.out.println(t.getCodTurma());
+		}
 		
 		
 		

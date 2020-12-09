@@ -2,6 +2,9 @@ package com.unit.academia.entidades;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
+
+import com.unit.academia.repositorios.TurmaRepositorio;
 
 public class Turma {
 	private int codTurma;
@@ -13,6 +16,10 @@ public class Turma {
 	private Instrutor instrutor;
 	private Atividade atividade;
 	private Aluno alunoMonitor;
+	
+	public Turma() {
+		
+	}
 	
 	//INSERIR NOVA TURMA
 	public Turma(Date dtInicio, Date dtFim, Time horario, int qtdMaxAlunos, Instrutor instrutor, Atividade atividade,
@@ -101,5 +108,23 @@ public class Turma {
 		this.alunoMonitor = alunoMonitor;
 	}
 	
+	public void criar(Turma turma) {
+		TurmaRepositorio.create(turma);
+	}
 	
+	public void alterar(Turma turma) {
+		TurmaRepositorio.update(turma);
+	}
+	
+	public Turma listarPorId(int id) {
+		return TurmaRepositorio.findById(id);
+	}
+	
+	public List<Turma> listarTodos(){
+		return TurmaRepositorio.findAll();
+	}
+	
+	public void excluir (Turma turma) {
+		TurmaRepositorio.delete(turma);
+	}
 }

@@ -1,12 +1,18 @@
 package com.unit.academia.entidades;
 
+import java.util.List;
+
+import com.unit.academia.repositorios.AtividadeRepositorio;
+
 public class Atividade {
 	private int codAtividade;
 	private String nome;
 	private String descricao;
 	private float custoHora;
 	
-	
+	public Atividade() {
+		
+	}
 	
 	//PARA INSERIR NOVAS ATIVIDADES
 	public Atividade(String nome, String descricao, float custoHora) {
@@ -50,6 +56,21 @@ public class Atividade {
 		this.custoHora = custoHora;
 	}
 	
+	public void criar(Atividade atividade) {
+		AtividadeRepositorio.create(atividade);
+	}
 	
+	public void alterar(Atividade atividade) {
+		AtividadeRepositorio.update(atividade);
+	}
+	public Atividade listarPorId(int id) {
+		return AtividadeRepositorio.findById(id);
+	}
 	
+	public List<Atividade> listarTodos(){
+		return AtividadeRepositorio.findAll();
+	}
+	public void excluir(Atividade atividade) {
+		AtividadeRepositorio.delete(atividade);
+	}
 }

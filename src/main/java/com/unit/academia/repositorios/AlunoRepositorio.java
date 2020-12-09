@@ -42,11 +42,12 @@ public abstract class AlunoRepositorio {
 			while (rs.next()) {
 				aluno = new Aluno(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getDate(10), rs.getFloat(11), rs.getFloat(12), rs.getString(13));
 			}
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return aluno;
 	}
 	
