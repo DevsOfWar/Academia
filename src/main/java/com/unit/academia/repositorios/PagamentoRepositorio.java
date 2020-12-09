@@ -53,16 +53,48 @@ public abstract class PagamentoRepositorio {
 		
 	}
 	
+	//NÃO TESTADO
 	public static Object findById(int id) {
 		Object object = null;
+		Pagamento pgmt = null;
 		
+		String query = "SELECT FROM pagamento WHERE cd_pagamento = " +id;
 		
+		try {
+			int codContrato = 0;
+			ResultSet rs = DatabaseConnection.stmt.executeQuery(query);
+			while (rs.next()) {
+				pgmt = new Pagamento (rs.getInt(1), rs.getString(2), rs.getBytes(3), rs.getDate(4), rs.getFloat(5), null);
+				codContrato = rs.getInt(6);
+			}
+			pgmt.setContrato(ContratoRepositorio.findById(codContrato));
+			if (pgmt.getMetodo().toUpperCase().contentEquals("BOLETO")) {
+				Boleto boleto = null;
+				query = "SELECT * FROM boleto WHERE cd_pagamento = " + pgmt.getCodPagamento();
+				rs = DatabaseConnection.stmt.executeQuery(query);
+				while (rs.next()) {
+					boleto = new Boleto(pgmt.getCodPagamento(), pgmt.getMetodo(), pgmt.getConfirmacao(), pgmt.getDtPagamento(), pgmt.getValor(), pgmt.getContrato(), rs.getString(2));
+				}
+				return boleto;
+			} else if (pgmt.getMetodo().toUpperCase().contentEquals("CARTAO")) {
+				Cartao cartao = null;
+				query = "SELECT * FROM cartao WHERE cd_pagamento = " + id;
+				ResultSet rs2 = DatabaseConnection.stmt.executeQuery(query);
+				while (rs2.next()) {
+					cartao = new Cartao (pgmt.getCodPagamento(), pgmt.getMetodo(), pgmt.getConfirmacao(), pgmt.getDtPagamento(), pgmt.getValor(), pgmt.getContrato(), rs2.getString(1), rs2.getString(2), rs2.getString(3));
+				}
+				return cartao;
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
-		
-		return object;
+		return pgmt;
 	}
 	
+	//
 	public static List<Object> findAll(){
 		List<Object> listaDePagamentos = new ArrayList<Object>();
 		
