@@ -4,13 +4,15 @@ import java.sql.Date;
 
 public class Boleto extends Pagamento {
 	private String codigoBarras;
-
+	
+	//LER
 	public Boleto(int codPagamento, String metodo, byte[] confirmacao, Date dtPagamento, float valor,
 			Contrato contrato, String codigoBarras) {
 		super(codPagamento, metodo, confirmacao, dtPagamento, valor, contrato);
 		this.codigoBarras = codigoBarras;
 	}
-
+	
+	//NOVO
 	public Boleto(String metodo, byte[] confirmacao, Date dtPagamento, float valor, Contrato contrato, String codigoBarras) {
 		super(metodo, confirmacao, dtPagamento, valor, contrato);
 		this.codigoBarras = codigoBarras;
