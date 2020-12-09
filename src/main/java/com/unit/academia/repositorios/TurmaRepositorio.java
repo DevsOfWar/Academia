@@ -100,5 +100,14 @@ public abstract class TurmaRepositorio {
 			ex.printStackTrace();
 		}
 	}
+	
+	public static List<Turma> findAllByAluno(int id) {
+		List<Turma> listaDeTurmas = new ArrayList<Turma>();
+		String query = "SELECT t.cd_turma, t.data_inicio, t.data_fim, t.horario_aula, t.qtd_aluno, t.cd_instrutor, t.cd_atividade, t.cd_matricula_monitor FROM turma AS t INNER JOIN aluno_turma AS [AT] ON t.cd";
+		
+		
+		
+		return listaDeTurmas;
+	}
 
 }
