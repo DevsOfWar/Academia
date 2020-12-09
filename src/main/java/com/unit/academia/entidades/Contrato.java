@@ -19,15 +19,11 @@ public class Contrato {
 	
 	
 	//NOVO
-	public Contrato(Date dtInicial, Date dtFinal, byte[] scanContratoInicial, byte[] scanRecisao, String tipoContrato,
-			boolean status, float valorAcordado, int qtdAtividadesAcordadas, Aluno aluno, Plano plano) {
+	public Contrato(byte[] scanContratoInicial, String tipoContrato, float valorAcordado, int qtdAtividadesAcordadas, Aluno aluno, Plano plano) {
 		super();
-		this.dtInicial = dtInicial;
-		this.dtFinal = dtFinal;
 		this.scanContratoInicial = scanContratoInicial;
-		this.scanRecisao = scanRecisao;
 		this.tipoContrato = tipoContrato;
-		this.status = status;
+		this.status = false;
 		this.valorAcordado = valorAcordado;
 		this.qtdAtividadesAcordadas = qtdAtividadesAcordadas;
 		this.aluno = aluno;
