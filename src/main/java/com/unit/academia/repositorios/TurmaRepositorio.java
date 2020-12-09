@@ -12,8 +12,9 @@ public abstract class TurmaRepositorio {
 
 	public static void create(Turma turma) {
 		
+		String dtFim = turma.getDtFim() == null ? "NULL" : "'" + turma.getDtFim() + "'";
 		String query = "INSERT INTO turma(data_inicio, data_fim, horario_aula, qtd_aluno, cd_instrutor, cd_atividade, cd_matricula_monitor)\n"
-				+ "VALUES ('" + turma.getDtInicio() + "', '" + turma.getDtFim() + "', '" + turma.getHorario() + "', " + turma.getQtdMaxAlunos() + ", " + (turma.getInstrutor() == null ? "NULL" : turma.getInstrutor().getCodInstrutor()) + ", " + turma.getAtividade().getCodAtividade() + ", " + (turma.getAlunoMonitor() == null ? "NULL" : turma.getAlunoMonitor().getCodAluno()) + ")";
+				+ "VALUES ('" + turma.getDtInicio() + "', " + dtFim + ", '" + turma.getHorario() + "', " + turma.getQtdMaxAlunos() + ", " + (turma.getInstrutor() == null ? "NULL" : turma.getInstrutor().getCodInstrutor()) + ", " + turma.getAtividade().getCodAtividade() + ", " + (turma.getAlunoMonitor() == null ? "NULL" : turma.getAlunoMonitor().getCodAluno()) + ")";
 	
 		try {
 			DatabaseConnection.stmt.executeUpdate(query);
@@ -24,8 +25,9 @@ public abstract class TurmaRepositorio {
 	}
 	
 	public static void update(Turma turma) {
+		String dtFim = turma.getDtFim() == null ? "NULL" : "'" + turma.getDtFim() + "'";
 		String query = "UPDATE turma\n"
-				+ "SET data_inicio = '" + turma.getDtInicio() + "', data_fim = '" + turma.getDtFim() + "', horario_aula = '" + turma.getHorario() + "', qtd_aluno = " + turma.getQtdMaxAlunos() + ", cd_instrutor = " + (turma.getInstrutor() == null ? "NULL" : turma.getInstrutor().getCodInstrutor()) + ", cd_atividade = " + turma.getAtividade().getCodAtividade() + ", cd_matricula_monitor = " + (turma.getAlunoMonitor() == null ? "NULL" : turma.getAlunoMonitor().getCodAluno()) + "\n"
+				+ "SET data_inicio = '" + turma.getDtInicio() + "', data_fim = " + dtFim + ", horario_aula = '" + turma.getHorario() + "', qtd_aluno = " + turma.getQtdMaxAlunos() + ", cd_instrutor = " + (turma.getInstrutor() == null ? "NULL" : turma.getInstrutor().getCodInstrutor()) + ", cd_atividade = " + turma.getAtividade().getCodAtividade() + ", cd_matricula_monitor = " + (turma.getAlunoMonitor() == null ? "NULL" : turma.getAlunoMonitor().getCodAluno()) + "\n"
  				+ "WHERE cd_turma = " + turma.getCodTurma();
 		
 		try {

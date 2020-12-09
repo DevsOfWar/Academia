@@ -21,16 +21,12 @@ public class Main {
 		}*/
 		
 		
-		Aluno aluno = AlunoRepositorio.findById(3);
-		System.out.println("TESTE");
-		aluno.setTurmasQueParticipa( TurmaRepositorio.findAllByAluno(aluno.getCodAluno()) );
-		
-		for (Turma t : aluno.getTurmasQueParticipa()) {
-			System.out.println(t.getCodTurma());
-		}
 		
 		
 		
+		String string = "18:00:00";
+		Time tempo = Time.valueOf(string);
+		System.out.println(tempo);
 		DatabaseConnection.conn.close();
 	}
 
