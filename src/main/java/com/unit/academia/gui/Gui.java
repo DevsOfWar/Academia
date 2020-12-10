@@ -18,7 +18,6 @@ public class Gui {
 	/**
 	 * @wbp.nonvisual location=62,379
 	 */
-	private final JPopupMenu popupMenu = new JPopupMenu();
 
 	/**
 	 * Launch the application.
@@ -133,14 +132,17 @@ public class Gui {
 		turmaAdd.setText("Adicionar");
 		mnNewMenu_3.add(turmaAdd);
 		
-		JMenuItem mntmNewMenuItem_15 = new JMenuItem("Editar");
-		mnNewMenu_3.add(mntmNewMenuItem_15);
+		JMenuItem turmaEd = new JMenuItem(new TurmaEditarAction());
+		turmaEd.setText("Editar");
+		mnNewMenu_3.add(turmaEd);
 		
-		JMenuItem mntmNewMenuItem_16 = new JMenuItem("Excluir");
-		mnNewMenu_3.add(mntmNewMenuItem_16);
+		JMenuItem turmaExcluir = new JMenuItem(new TurmaExcluirAction());
+		turmaExcluir.setText("Excluir");
+		mnNewMenu_3.add(turmaExcluir);
 		
-		JMenuItem mntmNewMenuItem_17 = new JMenuItem("Consultar");
-		mnNewMenu_3.add(mntmNewMenuItem_17);
+		JMenuItem turmaConsu = new JMenuItem(new TurmaConsultaAction());
+		turmaConsu.setText("Consultar");
+		mnNewMenu_3.add(turmaConsu);
 		
 	}
 }

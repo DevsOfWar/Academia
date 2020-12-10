@@ -95,8 +95,10 @@ public abstract class TurmaRepositorio {
 	
 	public static void delete(Turma turma) {
 		String query = "DELETE FROM turma WHERE cd_turma = " + turma.getCodTurma();
+		String query2 = "DELETE FROM aluno_turma WHERE cd_turma = " + turma.getCodTurma();
 		
 		try {
+			DatabaseConnection.stmt.executeUpdate(query2);
 			DatabaseConnection.stmt.executeUpdate(query);
 		} catch (SQLException ex) {
 			ex.printStackTrace();

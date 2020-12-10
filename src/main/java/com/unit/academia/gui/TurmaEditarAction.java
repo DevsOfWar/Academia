@@ -16,7 +16,7 @@ public class TurmaEditarAction extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		JFrame f = new JFrame();
 		f.setTitle("Editar turma");
-		f.setSize(100, 650);
+		f.setSize(100, 500);
 		f.setLocation(500, 100);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setLayout(new BorderLayout());
